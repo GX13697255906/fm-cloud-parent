@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gx.cloud.admin.server.mapper.FileMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gx.cloud.admin.server.entity.File">
+        <id column="id" property="id" />
+        <result column="f_name" property="fName" />
+        <result column="f_type" property="fType" />
+        <result column="userid" property="userid" />
+        <result column="description" property="description" />
+        <result column="f_path" property="fPath" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, f_name, f_type, userid, description, f_path, create_time, update_time
+    </sql>
+
+</mapper>

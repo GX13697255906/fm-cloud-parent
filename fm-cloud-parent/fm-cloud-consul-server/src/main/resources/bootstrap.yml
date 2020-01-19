@@ -1,0 +1,31 @@
+server:
+    port: 8089
+spring:
+    application:
+        name: ${artifactId}
+#    datasource: ${datasource}
+    cloud:
+        consul:
+            host: 127.0.0.1
+            port: 8500
+            discovery:
+                heartbeat:
+                    enabled: true
+                enabled: true
+                register: true
+                deregister: true
+                prefer-ip-address: true
+                instance-id: ${spring.application.name}:${random.value}
+                query-passing: true
+                hostname: 127.0.0.1
+                service-name: ${spring.application.name}
+                health-check-path: /actuator/health
+                health-check-interval: 10s
+            config:
+                format: yaml
+                enabled: true
+                default-context: fm-cloud-config
+                data-key: data
+                prefix: config
+                profile-separator: ','
+

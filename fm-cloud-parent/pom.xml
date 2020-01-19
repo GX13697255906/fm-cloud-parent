@@ -2,29 +2,60 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>${spring-boot.version}</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
     <groupId>com.gx.cloud</groupId>
     <artifactId>fm-cloud-parent</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
     <name>fm-cloud-parent</name>
     <description>文件管理系统</description>
 
     <!--业务逻辑模块-->
     <modules>
-        <module></module>
+        <module>fm-cloud-common-core</module>
+        <module>fm-cloud-api-gateway-server</module>
+        <module>fm-cloud-admin-server</module>
+        <module>fm-cloud-consul-server</module>
     </modules>
 
     <!--公共参数-->
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven-compiler-plugin.version>3.6.2</maven-compiler-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-dockerfile-plugin.version>1.4.10</maven-dockerfile-plugin.version>
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
+        <spring-boot-admin.version>2.1.6</spring-boot-admin.version>
         <spring-cloud.version>Greenwich.SR4</spring-cloud.version>
         <alibaba.cloud.version>2.1.0.RELEASE</alibaba.cloud.version>
+        <alibaba.fastjson.version>1.2.60</alibaba.fastjson.version>
+        <apache.commons-lang3.version>3.4</apache.commons-lang3.version>
+        <apache.commons-io.version>2.5</apache.commons-io.version>
+        <apache.commons.beanutils>1.9.3</apache.commons.beanutils>
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.2.0</mybatis-plus-generator.version>
+        <velocity-engine-core.version>2.0</velocity-engine-core.version>
+        <hutool.version>4.1.19</hutool.version>
+        <com.google.zxing.version>3.1.0</com.google.zxing.version>
+        <swagger2.version>2.9.2</swagger2.version>
+        <swagger-bootstrap-ui.version>1.9.5</swagger-bootstrap-ui.version>
+        <oracle.version>10.2.0.4.0</oracle.version>
+        <ip2region.version>1.7.2</ip2region.version>
+        <druid.version>1.1.21</druid.version>
+
+
+        <!--自定义版本号-->
+        <fm.common.core.version>1.0.0</fm.common.core.version>
+        <fm.api.gateway.version>1.0.0</fm.api.gateway.version>
+        <fm.admin.version>1.0.0</fm.admin.version>
+        <fm.consul.version>1.0.0</fm.consul.version>
+
     </properties>
 
     <!-- 依赖管理 -->
@@ -57,11 +88,42 @@
 
 
 
+    <!-- 编译 -->
     <build>
+        <resources>
+            <!-- 先指定 src/main/resources下所有文件及文件夹为资源文件 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${maven.compiler.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <!--打包跳过测试-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>
