@@ -1,17 +1,17 @@
 package com.gx.cloud.api.gateway;
 
+import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-//@EnableDiscoveryClient
-//@EnableFeignClients
+@SpringBootApplication
+@MapperScan(basePackages = "com.gx.cloud.api.gateway.mapper")
+@Slf4j
 public class ApiGatewayServerApplication {
 
     public static void main(String[] args) {
+        log.info("开始执行GateWay网关程序");
         SpringApplication.run(ApiGatewayServerApplication.class, args);
     }
 

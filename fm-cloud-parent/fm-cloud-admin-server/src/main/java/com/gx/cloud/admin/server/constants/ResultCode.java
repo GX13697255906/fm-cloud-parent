@@ -8,7 +8,9 @@ import java.util.Map;
 public enum ResultCode implements Serializable {
 
     SUCCESS(1,"请求执行成功"),
-    FAUL(2,"请求执行失败");
+    FAUL(2,"请求执行失败"),
+
+    SUCCESS_CONTENT_IS_NULL(3,"当前操作内容不存在");
 
     private static final Map<Integer,String> map = new HashMap<>();
 

@@ -9,9 +9,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @MapperScan(basePackages = {"com.gx.cloud.admin.server.mapper"})
-@EnableSwagger2
 @EnableFeignClients
 @EnableDiscoveryClient
+@EnableSwagger2
 public class FmCloudAdminServerApplication {
 
     public static void main(String[] args) {

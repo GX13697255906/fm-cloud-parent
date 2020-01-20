@@ -20,36 +20,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowCredentials(true)
-                .maxAge(3600)
-                .allowedHeaders("*");
-    }
-
-    /**
-     * 多个WebSecurityConfigurerAdapter
-     */
-//    @Configuration
-//    @Order(101)
-//    public static class ApiWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-//        @Override
-//        public void configure(WebSecurity web) throws Exception {
-//            web.ignoring().antMatchers(
-//                    "/error",
-//                    "/static/**",
-//                    "/v2/api-docs/**",
-//                    "/swagger-resources/**",
-//                    "/webjars/**",
-//                    "/favicon.ico");
-//        }
-//    }
-
-
-
-    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         registry.addResourceHandler("swagger-ui.html", "doc.html")

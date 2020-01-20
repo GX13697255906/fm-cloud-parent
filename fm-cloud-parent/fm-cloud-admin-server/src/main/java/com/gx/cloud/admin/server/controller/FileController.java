@@ -57,8 +57,8 @@ public class FileController {
         ResultDao result = new ResultDao();
         log.info("id = {}",id);
 
-        result.setSuccess(true);
-        result.setResultCode(1);
+        result.setSuccess(false);
+        result.setResultCode(3);
         result.setResult(fileService.del(id));
         return result;
     }

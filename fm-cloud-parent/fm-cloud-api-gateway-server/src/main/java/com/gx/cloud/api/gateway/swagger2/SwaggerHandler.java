@@ -1,4 +1,4 @@
-package com.gx.cloud.api.gateway.controller;
+package com.gx.cloud.api.gateway.swagger2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

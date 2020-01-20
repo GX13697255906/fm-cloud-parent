@@ -141,7 +141,7 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         String[] tables = {
-                "file"
+                "gateway_route"
                 // "TBL_CON_GAFIT_B", "TBL_CON_PARTITION_B_LF_96POINT", "TBL_CON_PARTITION_B_PRICE_ACM", "TBL_CON_PARTITION_B_PRICE_DAM", "TBL_CON_PLANT_B_PLAN_OUTPUT", "TBL_CON_PWRGRID_B_LF_96POINT",
                 // "TBL_CON_SYSTEM_B_PRICE_ACM", "TBL_CON_SYSTEM_B_PRICE_DAM", "TBL_CON_TIELINE_H_15MIN", "TBL_MLT_DECOMPOSE_B_DAY", "TBL_PWDS_DECLARE_B_DAM", "TBL_PWDS_PRICE_B_ACM",
                 // "TBL_PWDS_PRICE_B_DAM", "TBL_PWDS_RESULT_B_DAM", "TBL_PWGS_DECLARE_B_ACM", "TBL_PWGS_DECLARE_B_DAM", "TBL_PWGS_RESULT_B_DAM", "TBL_CON_PARTITION_B_EXCHANGE_DAM",
