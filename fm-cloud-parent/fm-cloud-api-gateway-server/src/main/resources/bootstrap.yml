@@ -1,0 +1,41 @@
+server:
+    port: 8888
+spring:
+    profiles:
+        active: dev
+    application:
+        name: ${artifactId}
+    cloud:
+        nacos:
+            config:
+                server-addr: 127.0.0.1:8848
+            discovery:
+                server-addr: 127.0.0.1:8848
+                namespace: ''
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+                    lower-case-service-id: true
+            routes:
+              - id: file_route
+                uri: http://localhost:8080
+                order: 0
+                predicates:
+                - Path=/file/**
+#                filters:
+#                - StripPrefix=1
+              - id: user_route
+                uri: http://localhost:8082
+                order: 0
+                predicates:
+                - Path=/user/**
+#                filters:
+#                - StripPrefix=1
+
+    main:
+        allow-bean-definition-overriding: true
+
+
+
+
