@@ -8,10 +8,10 @@
         <version>1.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>fm-cloud-consul-server</artifactId>
-    <name>fm-cloud-consul-server</name>
-    <version>${fm.consul.version}</version>
-    <description>微服务注册中心</description>
+    <artifactId>fm-cloud-user-admin-server</artifactId>
+    <name>fm-cloud-user-admin-server</name>
+    <version>${fm.user.admin.version}</version>
+    <description>用户登录验证，授权模块</description>
 
     <dependencies>
 
@@ -24,6 +24,12 @@
     </dependencies>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
