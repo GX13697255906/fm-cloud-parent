@@ -8,11 +8,11 @@ spring:
     cloud:
         nacos:
             config:
-                server-addr: 127.0.0.1:8848
+                server-addr: 139.199.84.234:8848
                 namespace: ''
                 shared-dataids: fm_db.yaml
             discovery:
-                server-addr: 127.0.0.1:8848
+                server-addr: 139.199.84.234:8848
                 namespace: ''
         gateway:
             discovery:
@@ -25,6 +25,12 @@ spring:
                 order: 0
                 predicates:
                 - Path=/file/**
+
+              - id: user_route
+                uri: http://localhost:8090
+                order: 0
+                predicates:
+                - Path=/user/**
 #                filters:
 #                - StripPrefix=1
 #              - id: user_route

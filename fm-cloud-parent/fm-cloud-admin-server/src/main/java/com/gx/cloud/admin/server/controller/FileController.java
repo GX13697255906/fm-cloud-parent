@@ -37,11 +37,13 @@ public class FileController {
     @ApiOperation(value = "多条件查询文件",notes = "多添加查询文件")
     @RequestMapping(value = "/sel", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiImplicitParam(name = "params",value = "{\"id\":\"文件ID\", \"文件名称\":\"fileName\", \"fileType\":\"文件类型\"}")
-    public List<File> getFile(@RequestBody Map<String,Object> params){
+    public ResultDao getFile(@RequestBody Map<String,Object> params){
+        ResultDao resultDao = new ResultDao();
         String id = MapUtils.getString(params,"id");
         String fileName = MapUtils.getString(params, "fileName");
         String fileType = MapUtils.getString(params, "fileType");
-        return fileService.getFile(id,fileName,fileType);
+        resultDao.setResult(fileService.getFile(id,fileName,fileType));
+        return resultDao;
 
     }
 
