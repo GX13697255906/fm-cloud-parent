@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan(basePackages = "com.gx.colud.user.admin.server.mapper")
+@MapperScan(basePackages = {"com.gx.cloud.user.admin.server.mapper"})
 public class FmCloudUserAdminServerApplication {
 
 

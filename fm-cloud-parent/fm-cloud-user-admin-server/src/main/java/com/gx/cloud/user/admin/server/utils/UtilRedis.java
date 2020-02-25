@@ -1,7 +1,7 @@
-package com.gx.cloud.common.util;
+package com.gx.cloud.user.admin.server.utils;
 
+import com.gx.cloud.common.util.UtilDate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -15,12 +15,10 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class UtilRedis {
 
-    @Value("${token.expirationSeconds}")
-    private int expirationSeconds;
+    private int expirationSeconds = 300;
 
     /*常量，各种实现方式都行，这里读取application.yml*/
-    @Value("${token.validTime}")
-    private int validTime;
+    private int validTime = 7;
 
     @Autowired
     private StringRedisTemplate redisTemplate;
@@ -223,7 +221,7 @@ public class UtilRedis {
         //刷新时间
         Integer expire = validTime*24*60*60*1000;
 
-        hset(token, "tokenValidTime",UtilDate.getAddDayTime(validTime),expire);
+        hset(token, "tokenValidTime", UtilDate.getAddDayTime(validTime),expire);
         hset(token, "expirationTime",UtilDate.getAddDaySecond(expirationSeconds),expire);
         hset(token, "username",username,expire);
         hset(token, "ip",ip,expire);

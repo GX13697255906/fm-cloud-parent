@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.gx.cloud.common.exception.ExceptionCode;
 import com.gx.cloud.common.util.ResultVO;
 import com.gx.cloud.common.util.UtilDate;
-import com.gx.cloud.common.util.UtilRedis;
+import com.gx.cloud.user.admin.server.utils.UtilRedis;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
