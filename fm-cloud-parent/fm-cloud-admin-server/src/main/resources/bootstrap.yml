@@ -12,7 +12,7 @@ spring:
             config:
                 namespace: ''
                 server-addr: 139.199.84.234:8848
-                shared-dataids: fm_db.yaml
+                shared-dataids: fm_db.yaml,redis.yaml
             discovery:
                 namespace: ''
                 server-addr: 139.199.84.234:8848

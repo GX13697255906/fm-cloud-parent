@@ -13,7 +13,7 @@ import java.util.Map;
  * @author xun.guo
  * @since 2019-12-31
  */
-public interface UserService extends IService<User> {
+public interface UserService extends IService<User>{
 
     User getUserByUserName(String username);
 

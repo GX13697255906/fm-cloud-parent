@@ -14,8 +14,8 @@
         <module>fm-cloud-common-core</module>
         <module>fm-cloud-api-gateway-server</module>
         <module>fm-cloud-admin-server</module>
-        <module>fm-cloud-consul-server</module>
         <module>fm-cloud-user-admin-server</module>
+        <module>fm-cloud-oauth2-admin-server</module>
     </modules>
 
     <!--公共参数-->
@@ -57,6 +57,7 @@
         <fm.admin.version>1.0.0</fm.admin.version>
         <fm.consul.version>1.0.0</fm.consul.version>
         <fm.user.admin.version>1.0.0</fm.user.admin.version>
+        <fm.oauth2.admin.version>1.0.0</fm.oauth2.admin.version>
 
     </properties>
 

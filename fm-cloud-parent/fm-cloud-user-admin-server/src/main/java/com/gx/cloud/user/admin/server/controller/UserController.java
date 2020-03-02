@@ -30,11 +30,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    public Map<String,Object> login(@RequestBody HashMap<String,Object> params){
-        return null;
-
-    }
-
     @ApiOperation(value = "用户注册",notes = "用户注册")
     @RequestMapping(value = "/registery",method = RequestMethod.POST)
     public String registery(@RequestBody HashMap<String,Object> params) throws Exception{
