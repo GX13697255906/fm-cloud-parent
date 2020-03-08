@@ -46,6 +46,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private SelfUserDetailsService userDetailService;
 
+    @Autowired
+    private ClientDetailsService clientDetailsService;
+
     @Bean
     public TokenStore tokenStore() {
         return new RedisTokenStore(redisConnectionFactory);
@@ -67,20 +70,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.jdbc(this.dataSource).clients(this.clientDetails());
-//        clients.inMemory()
-//                .withClient("android")
-//                .scopes("read")
-//                .secret("android")
-//                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
-//                .and()
-//                .withClient("webapp")
-//                .scopes("read")
-//                .authorizedGrantTypes("implicit")
-//                .and()
-//                .withClient("browser")
-//                .authorizedGrantTypes("refresh_token", "password")
-//                .scopes("read");
+        clients.withClientDetails(clientDetailsService);
     }
     @Bean
     public ClientDetailsService clientDetails() {
@@ -110,12 +100,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public DefaultTokenServices defaultTokenServices(){
         DefaultTokenServices tokenServices = new DefaultTokenServices();
-        tokenServices.setTokenStore(jdbcTokenStore());
+        tokenServices.setTokenStore(tokenStore());
         tokenServices.setSupportRefreshToken(true);
         // token有效期自定义设置，默认12小时
         tokenServices.setAccessTokenValiditySeconds(60*60*12);
         // refresh_token默认30天
         tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);
+        tokenServices.setClientDetailsService(clientDetailsService);
         return tokenServices;
     }
 }

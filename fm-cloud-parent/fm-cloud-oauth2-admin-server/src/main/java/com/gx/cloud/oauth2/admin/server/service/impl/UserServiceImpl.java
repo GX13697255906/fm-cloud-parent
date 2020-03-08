@@ -1,13 +1,13 @@
-package com.gx.cloud.user.admin.server.service.impl;
+package com.gx.cloud.oauth2.admin.server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gx.cloud.common.exception.ExceptionCode;
-import com.gx.cloud.common.util.UtilId;
-import com.gx.cloud.user.admin.server.entity.User;
-import com.gx.cloud.user.admin.server.mapper.UserMapper;
-import com.gx.cloud.user.admin.server.service.UserService;
 import com.gx.cloud.common.util.PasswordEncoderUtil;
+import com.gx.cloud.common.util.UtilId;
+import com.gx.cloud.oauth2.admin.server.entity.User;
+import com.gx.cloud.oauth2.admin.server.mapper.UserMapper;
+import com.gx.cloud.oauth2.admin.server.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -31,18 +31,27 @@ spring:
                 order: 0
                 predicates:
                 - Path=/user/**
-#                filters:
-#                - StripPrefix=1
-#              - id: user_route
-#                uri: http://localhost:8082
+
+
+#              - id: oauth2_route
+#                uri: http://localhost:8089
 #                order: 0
 #                predicates:
-#                - Path=/user/**
-#                filters:
-#                - StripPrefix=1
+#                - Path=/**
 
     main:
         allow-bean-definition-overriding: true
+
+#security:
+#    oauth2:
+#        client:
+#            access-token-uri: http://localhost:8089/uaa/oauth/token #网关的地址
+#            user-authorization-uri: http://localhost:8089/uaa/oauth/authorize
+#            client-id: wf
+#        resource:
+#            user-info-uri: http://localhost:8089/uaa/user
+#            prefer-token-info: false
+
 mybatis-plus:
     typeAliasesPackage: com.gx.cloud.api.gateway.entity
     mapper-locations: classpath*:mapper/**/*.xml

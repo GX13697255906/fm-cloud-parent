@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="fm-cloud-admin-server" />
+        <module name="fm-cloud-api-gateway-server" />
+        <module name="fm-cloud-common-core" />
+        <module name="fm-cloud-oauth2-admin-server" />
+        <module name="fm-cloud-user-admin-server" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="fm-cloud-oauth2-admin-server" options="" />
+    </option>
+  </component>
+</project>

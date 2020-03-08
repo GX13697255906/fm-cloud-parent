@@ -27,6 +27,16 @@ spring:
       force: true
       enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+auth:
+  clientId: fm_client_id
+  clientSecret: fm_client_secret
+
 mybatis-plus:
   typeAliasesPackage: com.gx.cloud.user.admin.server.entity
   mapper-locations: classpath*:mapper/**/*.xml

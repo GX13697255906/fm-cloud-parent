@@ -1,0 +1,49 @@
+server:
+    port: 8089
+spring:
+    application:
+        name: ${artifactId}
+    main:
+        allow-bean-definition-overriding: true
+    cloud:
+        bus:
+            id: ${spring.application.name}:${server.port}
+        nacos:
+            config:
+                namespace: ''
+                server-addr: 139.199.84.234:8848
+                shared-dataids: fm_db.yaml,redis.yaml
+            discovery:
+                namespace: ''
+                server-addr: 139.199.84.234:8848
+
+    profiles:
+        active: dev
+
+wf:
+    oauth: wf_oauth
+    secret: wf_secret
+
+mybatis-plus:
+    typeAliasesPackage: com.gx.cloud.oauth2.admin.server.entity
+    mapper-locations: classpath*:mapper/**/*.xml
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#        consul:
+#            host: 127.0.0.1
+#            port: 8500
+#            discovery:
+#                heartbeat:
+#                    enabled: true
+#                register: true
+#                hostname: 127.0.0.1
+#                service-name: ${spring.application.name}
+#                health-check-path: /actuator/health
+#                health-check-interval: 10s
+#            config:
+#                enabled: true
+#                format: yaml
+#                data-key: data
+#                default-context: ${spring.application.name}
+#                prefix: config

@@ -1,4 +1,4 @@
-package com.gx.cloud.user.admin.server.utils;
+package com.gx.cloud.common.util;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

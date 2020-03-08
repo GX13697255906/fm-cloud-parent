@@ -1,4 +1,4 @@
-package com.gx.cloud.user.admin.server.utils;
+package com.gx.cloud.common.util;
 
 import com.gx.cloud.common.util.UtilDate;
 import org.springframework.beans.factory.annotation.Autowired;
